@@ -21,9 +21,9 @@ dependencies ([`puppet-composer`](https://github.com/willdurand/puppet-composer)
 
     git clone git://github.com/previousnext/puppet-drush.git modules/drush
 
-**Important:** the right `puppet-composer` module is
-[willdurand/puppet-composer](https://github.com/willdurand/puppet-composer).
-Do **not** use any other `puppet-composer` module.
+**Important:** This module assumes that composer is already installed in the path of
+your system. If you're using another module and want to ensure it runs first, you should
+declare that dependency (e.g. `Class['composer'] -> Drush::Drush<||>`).
 
 Usage
 -----

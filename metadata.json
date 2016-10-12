@@ -13,17 +13,14 @@
     "drush"
   ],
   "dependencies": [
-    {
-      "name": "willdurand/composer",
-      "version_requirement": ">=1.1.1"
-    }
   ],
   "operatingsystem_support": [
     {
       "operatingsystem": "Ubuntu",
       "operatingsystemrelease": [
         "12.04",
-        "14.04"
+        "14.04",
+        "16.04"
       ]
     },
     {

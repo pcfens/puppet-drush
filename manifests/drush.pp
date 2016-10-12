@@ -36,7 +36,7 @@ define drush::drush (
   file { "${target_dir}/drush-${version}":
     ensure => directory,
     owner  => $user,
-    mode   => '0755'
+    mode   => '0755',
   }
 
   # Grab drush via composer.
@@ -45,11 +45,8 @@ define drush::drush (
     path        => '/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin',
     cwd         => "${target_dir}/drush-${version}",
     environment => "COMPOSER_HOME=${target_dir}/drush-${version}",
-    onlyif      => "test ! -f ${target_dir}/drush-${version}/vendor/bin/drush",
+    creates     => "${target_dir}/drush-${version}/vendor/bin/drush",
     user        => $user,
-    require     => [
-      Class['composer']
-    ]
   }
 
   # Create a symlink.
@@ -57,6 +54,6 @@ define drush::drush (
     ensure  => link,
     owner   => $user,
     target  => "${target_dir}/drush-${version}/vendor/bin/drush",
-    require => Exec["drush-install-${version}"]
+    require => Exec["drush-install-${version}"],
   }
 }
