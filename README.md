@@ -28,10 +28,6 @@ Do **not** use any other `puppet-composer` module.
 Usage
 -----
 
-Include the `drush::drush` class:
-
-    include drush::drush
-
 You can specify the version you want to install:
 
     drush::drush { 'drush8':
